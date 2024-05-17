@@ -26,8 +26,8 @@ target_link_libraries(
     rubus-gui
 )
 
-skia_copy_icudtl_dat(rubus-gui-example)
-
 add_subdirectory("example/vendor/glfw-3.4")
 set_property(TARGET glfw PROPERTY EXCLUDE_FROM_ALL true)
 set_property(TARGET glfw PROPERTY MSVC_RUNTIME_LIBRARY MultiThreaded$<$<CONFIG:Debug>:Debug>)
+
+skia_copy_icudtl_dat(rubus-gui-example)

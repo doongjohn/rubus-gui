@@ -13,7 +13,8 @@ target_link_libraries(
   skia
   INTERFACE
     ${SKIA_LIB_DIR}/skia.lib
-    ${SKIA_LIB_DIR}/skunicode.lib
+    ${SKIA_LIB_DIR}/skunicode_core.lib
+    ${SKIA_LIB_DIR}/skunicode_icu.lib
     ${SKIA_LIB_DIR}/skshaper.lib
     ${SKIA_LIB_DIR}/skparagraph.lib
 )
