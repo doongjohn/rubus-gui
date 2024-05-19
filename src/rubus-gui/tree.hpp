@@ -19,7 +19,8 @@ struct Tree {
   ~Tree();
 
   auto init(Screen *screen) -> void;
-  auto update_size(Screen *screen) -> void;
+  auto reset() -> void;
+  auto set_size(Screen *screen) -> void;
 
   auto run_mouse_event(int mouse_x, int mouse_y) -> void;
   auto run_mouse_leave_window_event(int mouse_x, int mouse_y) -> void;

@@ -12,10 +12,21 @@ Tree::~Tree() {
 }
 
 auto Tree::init(Screen *screen) -> void {
-  update_size(screen);
+  set_size(screen);
 }
 
-auto Tree::update_size(Screen *screen) -> void {
+auto Tree::reset() -> void {
+  root->delete_all_children();
+
+  is_mouse_button_enabled = true;
+  is_mouse_scroll_enabled = true;
+  is_mouse_down = false;
+
+  node_under_mouse = nullptr;
+  node_mouse_down = nullptr;
+}
+
+auto Tree::set_size(Screen *screen) -> void {
   root->style.width = {SizeMode::Self, (float)screen->width};
   root->style.height = {SizeMode::Self, (float)screen->height};
 }

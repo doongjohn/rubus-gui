@@ -34,8 +34,7 @@ auto SkiaRenderer::new_context() -> sk_sp<GrDirectContext> {
     return nullptr;
   }
 
-  auto context_opts = GrContextOptions{};
-  auto sk_context = GrDirectContexts::MakeGL(interface, context_opts);
+  auto sk_context = GrDirectContexts::MakeGL(interface);
   if (sk_context == nullptr) {
     std::cout << "skia: context is null!\n";
     return nullptr;

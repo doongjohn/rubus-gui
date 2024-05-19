@@ -9,7 +9,7 @@ struct Screen {
   Screen() = default;
   Screen(int width, int height) : width{width}, height{height} {}
 
-  auto update_size(int width, int height) -> void;
+  auto set_size(int width, int height) -> void;
 };
 
 } // namespace gui

@@ -1,5 +1,11 @@
-set(SKIA_INC_DIR "$ENV{USERPROFILE}/projects/skia" CACHE PATH "Path to skia directory")
-set(SKIA_LIB_DIR "${SKIA_INC_DIR}/out/Debug" CACHE PATH "Path to skia lib directory")
+set(USE_ASAN false CACHE BOOL "Use AddressSanitizer")
+if (USE_ASAN)
+  set(SKIA_INC_DIR "$ENV{USERPROFILE}/projects/skia" CACHE PATH "Path to skia directory")
+  set(SKIA_LIB_DIR "${SKIA_INC_DIR}/out/Asan" CACHE PATH "Path to skia lib directory")
+else()
+  set(SKIA_INC_DIR "$ENV{USERPROFILE}/projects/skia" CACHE PATH "Path to skia directory")
+  set(SKIA_LIB_DIR "${SKIA_INC_DIR}/out/Debug" CACHE PATH "Path to skia lib directory")
+endif()
 
 add_library(skia INTERFACE)
 
@@ -20,6 +26,7 @@ target_link_libraries(
 )
 
 function(skia_copy_icudtl_dat target)
+  message(${SKIA_LIB_DIR})
   add_custom_command(
     TARGET ${target}
     POST_BUILD

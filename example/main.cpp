@@ -42,9 +42,9 @@ auto main() -> int {
   ui_tree.init(&ui_screen);
 
   glfwSetFramebufferSizeCallback(window, [](GLFWwindow *window, int width, int height) {
-    ui_screen.update_size(width, height);
+    ui_screen.set_size(width, height);
     ui_renderer.regenerate_surface(&ui_screen);
-    ui_tree.update_size(&ui_screen);
+    ui_tree.set_size(&ui_screen);
   });
 
   glfwSetCursorEnterCallback(window, [](GLFWwindow *window, int entered) {

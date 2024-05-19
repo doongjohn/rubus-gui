@@ -4,7 +4,7 @@
 
 namespace rugui {
 
-auto Screen::update_size(int width, int height) -> void {
+auto Screen::set_size(int width, int height) -> void {
   this->width = std::max(width, 1);
   this->height = std::max(height, 1);
 }
