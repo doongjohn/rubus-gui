@@ -21,6 +21,7 @@ if (NOT CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 add_library(rubus-gui "")
+
 set_property(TARGET rubus-gui PROPERTY CXX_STANDARD 20)
 set_property(TARGET rubus-gui PROPERTY MSVC_RUNTIME_LIBRARY MultiThreaded$<$<CONFIG:Debug>:Debug>)
 use_sanitizer(rubus-gui)
