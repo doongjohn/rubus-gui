@@ -41,7 +41,7 @@ auto main() -> int {
   ui_renderer.init(&ui_screen);
   ui_tree.init(&ui_screen);
 
-  glfwSetFramebufferSizeCallback(window, [](GLFWwindow *window, int width, int height) {
+  glfwSetFramebufferSizeCallback(window, [](GLFWwindow *, int width, int height) {
     ui_screen.set_size(width, height);
     ui_renderer.regenerate_surface(&ui_screen);
     ui_tree.set_size(&ui_screen);
@@ -59,13 +59,13 @@ auto main() -> int {
     }
   });
 
-  glfwSetCursorPosCallback(window, [](GLFWwindow *window, double xpos, double ypos) {
+  glfwSetCursorPosCallback(window, [](GLFWwindow *, double xpos, double ypos) {
     int x = std::floor(xpos);
     int y = std::floor(ypos);
     ui_tree.run_mouse_event(x, y);
   });
 
-  glfwSetScrollCallback(window, [](GLFWwindow *window, double xoffset, double yoffset) {
+  glfwSetScrollCallback(window, [](GLFWwindow *, double, double yoffset) {
     ui_tree.run_vscroll_event((int)(yoffset * 25));
   });
 
