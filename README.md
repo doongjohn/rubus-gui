@@ -69,3 +69,8 @@
     - <https://stackoverflow.com/questions/34352140/what-are-the-differences-between-flex-basis-and-width>
 - skia paragraph ignoring space:
     - <https://groups.google.com/g/skia-discuss/c/WXUVWrcgiko>
+
+## Credits
+
+- image asset
+    - **Liz Molnar**: <https://raventale.itch.io/daily-doodles-pixelart-asset-pack>
