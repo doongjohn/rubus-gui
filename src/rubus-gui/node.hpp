@@ -92,6 +92,8 @@ public:
 
   auto set_color(SkColor4f color) -> Node *;
   auto set_font_size(float size) -> Node *;
+  auto set_image(sk_sp<SkImage> image) -> Node *;
+  auto set_image_sampling(SkSamplingOptions image_sampling) -> Node *;
 
   auto set_vscroll(bool value) -> Node *;
   auto set_hscroll(bool value) -> Node *;

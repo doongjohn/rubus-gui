@@ -7,6 +7,8 @@
 #include <include/core/SkSize.h>
 #include <include/core/SkMatrix.h>
 #include <include/core/SkColor.h>
+#include <include/core/SkImage.h>
+#include <include/core/SkSamplingOptions.h>
 
 namespace rugui {
 
@@ -60,6 +62,9 @@ struct NodeStyle {
 
   float font_size = 20.f;
 
+  sk_sp<SkImage> image = nullptr;
+  SkSamplingOptions image_sampling{SkFilterMode::kLinear};
+
   bool is_vscroll_enabled = true;
   bool is_hscroll_enabled = true;
   float vscroll_amount = 0;
@@ -96,6 +101,8 @@ struct NodeStyle {
 
   auto set_color(SkColor4f color) -> NodeStyle &;
   auto set_font_size(float size) -> NodeStyle &;
+  auto set_image(sk_sp<SkImage> image) -> NodeStyle &;
+  auto set_image_sampling(SkSamplingOptions image_sampling) -> NodeStyle &;
 
   auto set_vscroll(bool value) -> NodeStyle &;
   auto set_hscroll(bool value) -> NodeStyle &;

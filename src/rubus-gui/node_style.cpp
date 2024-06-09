@@ -31,6 +31,16 @@ auto NodeStyle::set_font_size(float size) -> NodeStyle & {
   return *this;
 }
 
+auto NodeStyle::set_image(sk_sp<SkImage> image) -> NodeStyle & {
+  this->image = image;
+  return *this;
+}
+
+auto NodeStyle::set_image_sampling(SkSamplingOptions image_sampling) -> NodeStyle & {
+  this->image_sampling = image_sampling;
+  return *this;
+}
+
 auto NodeStyle::set_vscroll(bool value) -> NodeStyle & {
   this->is_vscroll_enabled = value;
   return *this;

@@ -182,6 +182,16 @@ auto Node::set_font_size(float size) -> Node * {
   return this;
 }
 
+auto Node::set_image(sk_sp<SkImage> image) -> Node * {
+  this->style.set_image(image);
+  return this;
+}
+
+auto Node::set_image_sampling(SkSamplingOptions image_sampling) -> Node * {
+  this->style.set_image_sampling(image_sampling);
+  return this;
+}
+
 auto Node::set_vscroll(bool value) -> Node * {
   this->style.set_vscroll(value);
   return this;
@@ -1150,6 +1160,8 @@ auto Node::draw(SkiaRenderer *renderer) -> void {
   case Type::Rect: {
     auto paint = SkPaint{output.style.color};
     paint.setAntiAlias(true);
+
+    // draw rect
     const auto corners = std::array{SkVector{output.style.border_radius_tl, output.style.border_radius_tl},
                                     SkVector{output.style.border_radius_tr, output.style.border_radius_tr},
                                     SkVector{output.style.border_radius_br, output.style.border_radius_br},
@@ -1159,6 +1171,11 @@ auto Node::draw(SkiaRenderer *renderer) -> void {
     auto rrect = SkRRect::MakeEmpty();
     rrect.setRectRadii(rect, corners.data());
     canvas->drawRRect(rrect, paint);
+
+    // draw image
+    if (output.style.image != nullptr) {
+      canvas->drawImageRect(output.style.image, rect, output.style.image_sampling);
+    }
 
     // update clip rect
     output.style.clip_rect = rect;
