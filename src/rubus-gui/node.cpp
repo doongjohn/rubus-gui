@@ -1174,10 +1174,10 @@ auto Node::draw(SkiaRenderer *renderer) -> void {
 
     // draw image
     if (output.style.image != nullptr) {
-      const auto image_rect = SkRect::MakeXYWH(rect_pos.fX + output.style.padding_l,             //
-                                               rect_pos.fY + output.style.padding_t,             //
-                                               output.rect_size.fWidth - output.style.padding_r, //
-                                               output.rect_size.fHeight - output.style.padding_b //
+      const auto image_rect = SkRect::MakeXYWH(rect_pos.fX + output.style.padding_l,               //
+                                               rect_pos.fY + output.style.padding_t,               //
+                                               output.rect_size.fWidth - output.get_padding_col(), //
+                                               output.rect_size.fHeight - output.get_padding_row() //
       );
       canvas->drawImageRect(output.style.image, image_rect, output.style.image_sampling);
     }
