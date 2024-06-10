@@ -1174,7 +1174,12 @@ auto Node::draw(SkiaRenderer *renderer) -> void {
 
     // draw image
     if (output.style.image != nullptr) {
-      canvas->drawImageRect(output.style.image, rect, output.style.image_sampling);
+      const auto image_rect = SkRect::MakeXYWH(rect_pos.fX + output.style.padding_l,             //
+                                               rect_pos.fY + output.style.padding_t,             //
+                                               output.rect_size.fWidth - output.style.padding_r, //
+                                               output.rect_size.fHeight - output.style.padding_b //
+      );
+      canvas->drawImageRect(output.style.image, image_rect, output.style.image_sampling);
     }
 
     // update clip rect

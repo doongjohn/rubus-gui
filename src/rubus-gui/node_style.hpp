@@ -32,6 +32,18 @@ enum class SizeMode {
 struct Size {
   SizeMode mode = SizeMode::Self;
   float value = 0;
+
+  static inline auto Self(float value) -> Size {
+    return {SizeMode::Self, value};
+  }
+
+  static inline auto Parent(float value) -> Size {
+    return {SizeMode::Parent, value};
+  }
+
+  static inline auto FitContent() -> Size {
+    return {SizeMode::FitContent, 0};
+  }
 };
 
 enum class FlexDir {
