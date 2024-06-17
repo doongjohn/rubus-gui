@@ -78,19 +78,19 @@ auto main() -> int {
             ->set_flex_self_align(rugui::FlexAlign::Center))
     ->add((new rugui::Node{"row"})
             ->set_flex_dir(rugui::FlexDir::Col)
-            ->set_width({rugui::SizeMode::Parent, 1})
-            ->set_height({rugui::SizeMode::FitContent, 0})
+            ->set_width(rugui::Size::Parent(1))
+            ->set_height(rugui::Size::FitContent())
             ->add((new rugui::Node{"image"})
-                    ->set_width({rugui::SizeMode::Self, 32 * 2})
-                    ->set_height({rugui::SizeMode::Self, 32 * 2})
+                    ->set_width(rugui::Size::Self(32 * 2))
+                    ->set_height(rugui::Size::Self(32 * 2))
                     ->set_image(skimg_spellbook)
                     ->set_image_sampling(SkSamplingOptions{SkFilterMode::kNearest}))
             ->add((new rugui::Node{"box"})
                     ->set_color(SkColor4f::FromColor(0xFF'EAEAEA))
                     ->set_flex_self_align(rugui::FlexAlign::Center)
                     ->set_padding(10)
-                    ->set_width(rugui::Size{rugui::SizeMode::Parent, 1})
-                    ->set_height(rugui::Size{rugui::SizeMode::FitContent, 0})
+                    ->set_width(rugui::Size::Parent(1))
+                    ->set_height(rugui::Size::FitContent())
                     ->add((new rugui::Node{
                       "text",
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut "
@@ -101,8 +101,8 @@ auto main() -> int {
             ->add((new rugui::Node{"box"})
                     ->set_color(SkColors::kGray)
                     ->set_flex_self_align(rugui::FlexAlign::Center)
-                    ->set_width(rugui::Size{rugui::SizeMode::Parent, 1})
-                    ->set_height(rugui::Size{rugui::SizeMode::FitContent, 0})
+                    ->set_width(rugui::Size::Parent(1))
+                    ->set_height(rugui::Size::FitContent())
                     ->add((new rugui::Node{
                       "text",
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut "
